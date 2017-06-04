@@ -1,12 +1,16 @@
 package brotherdetjr.utils;
 
-import com.google.common.base.Preconditions;
-import lombok.experimental.UtilityClass;
-
+import java.io.InputStream;
 import java.util.function.Function;
 
-@UtilityClass
+import static java.lang.Thread.currentThread;
+import static java.util.Objects.requireNonNull;
+
 public class Utils {
+
+	private Utils() {
+		throw new AssertionError();
+	}
 
 	/**
 	 * Throws {@link NullPointerException} if any of the args is null.
@@ -15,7 +19,7 @@ public class Utils {
 	@SuppressWarnings("ResultOfMethodCallIgnored")
 	public static void checkNotNull(Object ... objects) {
 		for (Object object : objects) {
-			Preconditions.checkNotNull(object);
+			requireNonNull(object);
 		}
 	}
 
@@ -46,5 +50,14 @@ public class Utils {
 			clazz = clazz.getSuperclass();
 		}
 		return null;
+	}
+
+	/**
+	 * Returns resource's {@link InputStream}.
+	 * @param name specifies the name of the resource to give {@link InputStream} for.
+	 * @return resource's {@link InputStream}.
+	 */
+	public static InputStream resourceAsStream(String name) {
+		return currentThread().getContextClassLoader().getResourceAsStream(name);
 	}
 }

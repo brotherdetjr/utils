@@ -5,6 +5,7 @@ import spock.lang.Unroll
 
 import static brotherdetjr.utils.Utils.checkNotNull
 import static brotherdetjr.utils.Utils.propagateIfError
+import static brotherdetjr.utils.Utils.resourceAsStream
 import static brotherdetjr.utils.Utils.searchInHierarchy
 
 
@@ -47,6 +48,11 @@ class UtilsTest extends Specification {
 		S3     | 'a value'
 		SX     | null
 		String | null
+	}
+
+	def 'resourceAsStream() returns InputStream for given resource'() {
+		expect:
+		resourceAsStream('test.txt').text == 'Hello World!'
 	}
 
 	class S1 {}
