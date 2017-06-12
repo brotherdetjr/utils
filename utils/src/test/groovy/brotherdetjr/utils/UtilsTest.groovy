@@ -26,17 +26,6 @@ class UtilsTest extends Specification {
 		thrown NullPointerException
 	}
 
-	def 'propagateIfError() propagates given throwable if it is of Error type'() {
-		when:
-		propagateIfError new Exception()
-		then:
-		notThrown Throwable
-		when:
-		propagateIfError new OutOfMemoryError()
-		then:
-		thrown OutOfMemoryError
-	}
-
 	@Unroll
 	def 'searchInHierarchy() returns value of func if func(clazz) != null otherwise it goes up the hierarchy'() {
 		expect:

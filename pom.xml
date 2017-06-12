@@ -24,6 +24,7 @@
 		<spock.version>1.1-groovy-2.4-rc-3</spock.version>
 		<cglib-nodep.version>3.2.4</cglib-nodep.version>
 		<vertx.version>3.4.1</vertx.version>
+		<guava.version>21.0</guava.version>
 	</properties>
 
 	<build>
@@ -56,6 +57,11 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.codehaus.groovy</groupId>

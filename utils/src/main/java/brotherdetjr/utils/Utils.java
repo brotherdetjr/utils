@@ -24,16 +24,6 @@ public class Utils {
 	}
 
 	/**
-	 * Propagates given {@link Throwable} instance if it is of Error type.
-	 * @param e a {@link Throwable} instance to propagate or not.
-	 */
-	public static void propagateIfError(Throwable e) {
-		if (e instanceof Error) {
-			throw (Error) e;
-		}
-	}
-
-	/**
 	 * Returns value of func if func(clazz) != null otherwise it goes up the hierarchy.
 	 * @param clazz specifies a class to start a search with.
 	 * @param func specifies a function to check a value for.
